@@ -74,11 +74,13 @@ Fractionalizing an NFT
     Call the depositNFT function from the FractionalNFTManager contract to deposit your NFT and create fractional tokens.
 
 ## TESTING
-Run your tests using Foundry:
+1. Run your tests using Foundry:
+
     ```bash 
     forge test
 
-To run tests on a fork (e.g., Sepolia):
+2. To run tests on a fork (e.g., Sepolia):
+
     ```bash
     forge test --fork-url $SEPOLIA_RPC_URL
 
@@ -86,9 +88,12 @@ Ensure your environment variables are loaded (for example, by running source .en
 
 
 ## DEPLOYMENT
-Deploy your contracts using the provided Foundry script:
+1. Deploy your contracts using the provided Foundry script:
+
     ```bash
     forge script script/Deploy.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify
+
+
 This script deploys the FractionalNFTManager and TestNFT contracts, and logs their addresses.
 
 ## CONTRIBUTING
