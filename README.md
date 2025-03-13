@@ -35,7 +35,9 @@ The project uses [Foundry](https://getfoundry.sh/) for development, testing, and
 
 ## Project Structure
 
-fractional-nft/ ├── src │ ├── FractionalNFTManager.sol // Core contract to manage NFT deposits and fractional token creation. │ ├── FractionalToken.sol // ERC20 token that represents fractional ownership. │ └── TestNFT.sol // A test ERC721 token to simulate NFT deposits. ├── test │ └── FractionalTokenTest.t.sol // Foundry tests for fractionalization functionality. ├── script │ └── Deploy.s.sol // Deployment script to broadcast contracts. ├── .env // Environment variables (e.g., PRIVATE_KEY). ├── foundry.toml // Foundry configuration. └── README.md // This file.
+```
+fractional-nft/ ├── src │ ├── FractionalNFTManager.sol // Core contract to manage NFT deposits and fractional token creation │ ├── FractionalToken.sol // ERC20 token that represents fractional ownership │ └── TestNFT.sol // A test ERC721 token to simulate NFT deposits ├── test │ └── FractionalTokenTest.t.sol // Foundry tests for fractionalization functionality ├── script │ └── Deploy.s.sol // Deployment script to broadcast contracts ├── .env // Environment variables (e.g., PRIVATE_KEY) ├── foundry.toml // Foundry configuration └── README.md // This file
+```
 
 
 ## Installation
