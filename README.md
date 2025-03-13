@@ -8,6 +8,7 @@ A Foundry-based Solidity project that demonstrates how to fractionalize NFTs by 
   - [Table of Contents](#table-of-contents)
   - [About](#about)
   - [Features](#features)
+  - [Project Structure](#project-structure)
   - [Installation](#installation)
   - [USAGE](#usage)
   - [TESTING](#testing)
@@ -32,12 +33,22 @@ The project uses [Foundry](https://getfoundry.sh/) for development, testing, and
 - **Comprehensive Testing:** Includes tests written in Solidity with Foundry to verify functionality.
 - **Deployment Script:** Easy deployment using Foundry's scripting capabilities.
 
-```markdown
 ## Project Structure
 
-fractional-nft/ ├── src │ ├── FractionalNFTManager.sol // Core contract to manage NFT deposits and fractional token creation │ ├── FractionalToken.sol // ERC20 token that represents fractional ownership │ └── TestNFT.sol // A test ERC721 token to simulate NFT deposits ├── test │ └── FractionalTokenTest.t.sol // Foundry tests for fractionalization functionality ├── script │ └── Deploy.s.sol // Deployment script to broadcast contracts ├── .env // Environment variables (e.g., PRIVATE_KEY) ├── foundry.toml // Foundry configuration └── README.md // This file
 ```
-
+fractional-nft/
+├── src
+│   ├── FractionalNFTManager.sol   // Core contract to manage NFT deposits and fractional token creation
+│   ├── FractionalToken.sol        // ERC20 token that represents fractional ownership
+│   └── TestNFT.sol                // A test ERC721 token to simulate NFT deposits
+├── test
+│   └── FractionalTokenTest.t.sol  // Foundry tests for fractionalization functionality
+├── script
+│   └── Deploy.s.sol               // Deployment script to broadcast contracts
+├── .env                           // Environment variables (e.g., PRIVATE_KEY)
+├── foundry.toml                   // Foundry configuration
+└── README.md                      // This file
+```
 
 ## Installation
 
