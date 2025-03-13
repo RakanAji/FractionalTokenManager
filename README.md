@@ -1,66 +1,96 @@
-## Foundry
+# Fractional NFT Manager
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A Foundry-based Solidity project that demonstrates how to fractionalize NFTs by depositing an ERC721 token and minting fractional ERC20 tokens. This project includes smart contracts, tests, and deployment scripts to help you understand the process of NFT fractionalization on-chain.
 
-Foundry consists of:
+## Table of Contents
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- [Fractional NFT Manager](#fractional-nft-manager)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Features](#features)
+  - [Project Structure](#project-structure)
+  - [Installation](#installation)
+  - [USAGE](#usage)
+  - [TESTING](#testing)
+  - [DEPLOYMENT](#deployment)
+  - [CONTRIBUTING](#contributing)
+  - [License](#license)
 
-## Documentation
+## About
 
-https://book.getfoundry.sh/
+The **Fractional NFT Manager** project allows users to deposit an NFT (ERC721) and, in return, deploys a new fractional token (ERC20) that represents shares of the NFT. This concept makes it possible to:
+- Fractionalize valuable digital assets.
+- Enable shared ownership of NFTs.
+- Provide liquidity to traditionally illiquid assets.
 
-## Usage
+The project uses [Foundry](https://getfoundry.sh/) for development, testing, and deployment of Solidity smart contracts.
 
-### Build
+## Features
 
-```shell
-$ forge build
-```
+- **NFT Deposit:** Transfer an NFT into the manager contract.
+- **Fractional Token Minting:** Automatically deploy a fractional ERC20 token contract upon NFT deposit.
+- **ERC721 Receiver:** Implements the `IERC721Receiver` interface to safely receive NFT transfers.
+- **Comprehensive Testing:** Includes tests written in Solidity with Foundry to verify functionality.
+- **Deployment Script:** Easy deployment using Foundry's scripting capabilities.
 
-### Test
+## Project Structure
 
-```shell
-$ forge test
-```
+fractional-nft/ ├── src │ ├── FractionalNFTManager.sol // Core contract to manage NFT deposits and fractional token creation. │ ├── FractionalToken.sol // ERC20 token that represents fractional ownership. │ └── TestNFT.sol // A test ERC721 token to simulate NFT deposits. ├── test │ └── FractionalTokenTest.t.sol // Foundry tests for fractionalization functionality. ├── script │ └── Deploy.s.sol // Deployment script to broadcast contracts. ├── .env // Environment variables (e.g., PRIVATE_KEY). ├── foundry.toml // Foundry configuration. └── README.md // This file.
 
-### Format
 
-```shell
-$ forge fmt
-```
+## Installation
 
-### Gas Snapshots
+1. **Clone the Repository:**
 
-```shell
-$ forge snapshot
-```
+   ```bash
+   git clone https://github.com/yourusername/fractional-nft.git
+   cd fractional-nft
 
-### Anvil
+2. Install Foundry:
+    Follow the instructions on the Foundry website to install Foundry.
 
-```shell
-$ anvil
-```
+3. Install Dependencies:
+    This project uses OpenZeppelin contracts. Foundry automatically fetches dependencies defined in your foundry.toml, so simply run:
+        ```bash
+        forge install
 
-### Deploy
+4. Set Up Environment Variables:
+    Create a .env file in the project root with your private key and any other variables. For example:
+        ```env
+        PRIVATE_KEY=0xYourPrivateKeyHere
+        SEPOLIA_RPC_URL=https://eth-sepolia.alchemy.com/v2/YourAlchemyApiKey
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+## USAGE
+Fractionalizing an NFT
+1. Mint an NFT:
+    Use the TestNFT contract to mint an NFT.
 
-### Cast
+2. Approve the Manager:
+    Approve the FractionalNFTManager contract to transfer your NFT.
 
-```shell
-$ cast <subcommand>
-```
+3. Deposit the NFT:
+    Call the depositNFT function from the FractionalNFTManager contract to deposit your NFT and create fractional tokens.
 
-### Help
+## TESTING
+Run your tests using Foundry:
+    ```bash
+    forge test
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+To run tests on a fork (e.g., Sepolia):
+    ```bash
+    forge test --fork-url $SEPOLIA_RPC_URL
+
+Ensure your environment variables are loaded (for example, by running source .env).
+
+
+## DEPLOYMENT
+Deploy your contracts using the provided Foundry script:
+    ```bash
+    forge script script/Deploy.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify
+This script deploys the FractionalNFTManager and TestNFT contracts, and logs their addresses.
+
+## CONTRIBUTING
+Contributions are welcome! Feel free to open issues or submit pull requests for improvements or bug fixes.
+
+## License
+This project is licensed under the MIT License.
