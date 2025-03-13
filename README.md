@@ -51,14 +51,16 @@ fractional-nft/ ├── src │ ├── FractionalNFTManager.sol // Core con
 
 3. Install Dependencies:
     This project uses OpenZeppelin contracts. Foundry automatically fetches dependencies defined in your foundry.toml, so simply run:
-        ```bash
-        forge install
+
+    ```bash
+    forge install
 
 4. Set Up Environment Variables:
     Create a .env file in the project root with your private key and any other variables. For example:
-        ```env
-        PRIVATE_KEY=0xYourPrivateKeyHere
-        SEPOLIA_RPC_URL=https://eth-sepolia.alchemy.com/v2/YourAlchemyApiKey
+
+    ```env
+    PRIVATE_KEY=0xYourPrivateKeyHere
+    SEPOLIA_RPC_URL=https://eth-sepolia.alchemy.com/v2/YourAlchemyApiKey
 
 ## USAGE
 Fractionalizing an NFT
@@ -73,7 +75,7 @@ Fractionalizing an NFT
 
 ## TESTING
 Run your tests using Foundry:
-    ```bash
+    ```bash 
     forge test
 
 To run tests on a fork (e.g., Sepolia):
